@@ -1,0 +1,45 @@
+.grid-container{
+    background-color: grey;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding:5px;
+    gap:30px;
+    .music-body{
+        display: flex;
+        flex-direction: column;
+        max-width: 300px;
+        border: 2px solid black;
+        border-radius: 50px;
+    
+        &:hover{
+            border: 4px solid red;
+        }
+        &__image{
+            .music-image{
+                padding: 10px;
+                box-sizing: border-box;
+                max-width: 100%;
+                height: auto;
+                border-radius: 50px;
+                
+                &:hover{
+                    border: 2px solid blue;
+                    .play-button{
+                        display: block;
+                    }
+                }
+
+            }
+            .play-button{
+                display:none;
+                width: 50px;
+                height: auto;
+            }
+            
+        }
+        &__content{
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    }
+}
