@@ -1,0 +1,22 @@
+.communities {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  &__items {
+    a {
+      text-decoration: none;
+      color: white;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+  }
+}

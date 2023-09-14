@@ -1,0 +1,41 @@
+.footer {
+  padding-top: 5%;
+  width: 100%;
+  background-color: #121212;
+  display: flex;
+  flex-direction: column;
+  color: white;
+
+  &-links {
+    // background-color: gold;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 1%;
+
+    &__pages {
+      flex-grow: 3;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    &__social {
+      flex-grow: 1;
+      min-width: 200px;
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &-line {
+    display: flex;
+    // margin: 2%;
+    width: 100%;
+    border: 0.1px solid white;
+  }
+
+  &-credit {
+    margin-left: 20%;
+  }
+}
