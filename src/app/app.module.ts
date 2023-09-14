@@ -8,12 +8,16 @@ import { BodyContainerComponent } from './body-container/body-container.componen
 import { FooterContainerComponent } from './footer-container/footer-container.component';
 import { BodyContainerModule } from './body-container/body-container.module';
 import { GridContainerComponent } from './body-container/grid-container/grid-container.component';
+import { HeaderParentComponent } from './header-container/header-parent/header-parent.component';
+import { HeaderChildComponent } from './header-container/header-child/header-child.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderContainerComponent,
     FooterContainerComponent,
+    HeaderParentComponent,
+    HeaderChildComponent,
   ],
   imports: [
     BrowserModule,

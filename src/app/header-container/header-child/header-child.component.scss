@@ -1,0 +1,31 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.parentTopBar{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    height: 4rem;
+    background-color: rgb(58, 57, 57);
+}
+.subTopLeft{
+    display: flex;
+}
+.arrownav{
+    padding: 4px;
+}
+.subTopRight-btn{
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 30px;
+    font-weight: 640;
+}
+
+.arrownav{
+    width: 30px;
+    height: 30px;
+}
