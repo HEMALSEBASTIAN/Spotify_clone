@@ -1,0 +1,25 @@
+<div class="add-music-container">
+    <h1>Add Music</h1>
+    <div class="add-music-container__forms">
+        <div>
+            <label for="albumName">Album name :</label>
+            <input type="text" name="albumName" id="albumName"  [(ngModel)]="music.albumName"/>
+        </div>
+        <div>
+            <label for="authorName">Author name :</label>
+            <input type="text" name="authorName"  id="authorName" [(ngModel)]="music.authorName"/>
+        </div>
+        <div>
+            <label for="category">Category :</label>
+            <input type="text" name="category"  id="category" [(ngModel)]="music.category"  />
+        </div>
+        <div>
+            <label for="imageUrl">Image url :</label>
+            <input type="text" name="imageUrl"  id="imageUrl" [(ngModel)]="music.imageUrl" />
+        </div>
+    </div>
+    <div class="add-music-container__buttons">
+        <button class="add-music-container__buttons-submit" (click)="onSubmit()">Submit</button>
+        <button class="add-music-container__buttons-visit" (click)="onVisit()">Visit Home Page</button>
+    </div>   
+</div>

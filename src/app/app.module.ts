@@ -10,21 +10,27 @@ import { BodyContainerModule } from './body-container/body-container.module';
 import { GridContainerComponent } from './body-container/grid-container/grid-container.component';
 import { HeaderParentComponent } from './header-container/header-parent/header-parent.component';
 import { HeaderChildComponent } from './header-container/header-child/header-child.component';
+import { LocalStorageService } from './services/local-storage.service';
+import { MusicCreationComponent } from './body-container/music-creation/music-creation.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderContainerComponent,
-    FooterContainerComponent,
     HeaderParentComponent,
     HeaderChildComponent,
+    MusicCreationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BodyContainerModule
+    BodyContainerModule,
+    FooterContainerModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,30 +10,32 @@
         max-width: 300px;
         border: 2px solid black;
         border-radius: 50px;
-    
+        box-sizing: border-box;
         &:hover{
             border: 4px solid red;
         }
         &__image{
+            margin-bottom: -52px;
             .music-image{
                 padding: 10px;
                 box-sizing: border-box;
                 max-width: 100%;
                 height: auto;
                 border-radius: 50px;
-                
-                &:hover{
-                    border: 2px solid blue;
-                    .play-button{
-                        display: block;
-                    }
-                }
 
             }
             .play-button{
-                display:none;
+                display:block;
                 width: 50px;
                 height: auto;
+                position: relative;
+                cursor: pointer;
+                left: 76%;
+                bottom:22%;
+                transition: transform 0.5s;
+                &:hover{
+                    transform: scale(1.15);
+                }
             }
             
         }

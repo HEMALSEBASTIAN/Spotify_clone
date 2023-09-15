@@ -1,16 +1,16 @@
 <div class="grid-container">
-    <ng-container *ngFor="let music of MusicList">
+    <ng-container *ngFor="let music of musicList">
         <div class="music-body">
             <div class="music-body__image">
                 <img class="music-image" src="{{music.imageUrl}}"  alt="no image">
                 <img class="play-button" src="https://www.transparentpng.com/thumb/play-button/nHKpsQ-play-button-png.png" alt="play button">
             </div>
             <div class="music-body__content">
-                {{music.albumName}}
+                {{music.albumName | titlecase}}
                 <br>
-                {{music.authorName}}
+                {{music.authorName | titlecase}}
                 <br>
-                {{music.category}}
+                {{music.category | titlecase}}
             </div>
             
         </div>
