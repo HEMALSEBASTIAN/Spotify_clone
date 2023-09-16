@@ -17,7 +17,8 @@ const routes: Routes = [
   {
     path: 'bodyContainer',
     component: BodyContainerComponent,
-  }, {
+  }, 
+  {
     path: "signup",
     component: SignupComponent
   }
