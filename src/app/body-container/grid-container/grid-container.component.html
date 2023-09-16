@@ -1,4 +1,4 @@
-<div class="grid-container">
+<div class="grid-container" [style.min-height]="musicList.length===0?'500px' : '0px'">
     <ng-container *ngFor="let music of musicList">
         <div class="music-body">
             <div class="music-body__image">
@@ -11,6 +11,9 @@
                 {{music.authorName | titlecase}}
                 <br>
                 {{music.category | titlecase}}
+            </div>
+            <div class="music-body__footer">
+                <button class="music-edit" (click)="edit(music.id)">Edit</button>
             </div>
             
         </div>

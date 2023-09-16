@@ -8,50 +8,69 @@
     h1 {
         font-size: 24px;
     }
+    form{
+        .validation-error{
+            font-weight: bold;
+            color: red;
+            text-align: center;
+        }
 
-    &__forms {
-        margin-top: 20px;
 
-        div {
+        .add-music-container__forms {
+            margin-top: 20px;
+            div {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 10px;
+    
+                input {
+                    padding: 10px;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: black;
+                    color: white;
+                    font-size: 16px;
+                }
+                .inline-setting{
+                    display: flex;
+                    flex-direction: row;
+                    label {
+                        margin-bottom: 5px;
+                        font-weight: bold;
+                        color: black;
+                    }
+                    .validation-error{
+                        color:red;
+                        display: inline;
+                        font-weight: bold;
+                    }
+
+                }
+            }
+        }
+    
+        .add-music-container__buttons {
+            margin-top: 20px;
             display: flex;
-            flex-direction: column;
+            gap:10px;
             margin-bottom: 10px;
-
-            label {
-                margin-bottom: 5px;
-                font-weight: bold;
-            }
-
-            input {
-                padding: 10px;
+    
+            &-submit,
+            &-visit,
+            &-reset {
+                padding: 10px 20px;
                 border: none;
-                border-radius: 5px;
-                background-color: black;
-                color: white;
+                border-radius: 30px;
+                cursor: pointer;
                 font-size: 16px;
+                background-color: #007bff;
+                color: white;
+    
+                &:hover {
+                    background-color: #0056b3;
+                }
             }
         }
     }
-
-    &__buttons {
-        margin-top: 20px;
-        display: flex;
-        gap:10px;
-        margin-bottom: 10px;
-
-        &-submit,
-        &-visit {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 16px;
-            background-color: #007bff;
-            color: white;
-
-            &:hover {
-                background-color: #0056b3;
-            }
-        }
-    }
+    
 }

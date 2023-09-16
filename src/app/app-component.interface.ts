@@ -1,3 +1,4 @@
+
 export interface IMusic {
     id: number;
     albumName: string;

@@ -17,6 +17,7 @@ import { SignupComponent } from './signup/signup.component';
 import { UserAuthService } from './services/userauth-service.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,7 @@ import { UserAuthService } from './services/userauth-service.service';
     BodyContainerModule,
     FooterContainerModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [LocalStorageService, UserAuthService],
   bootstrap: [AppComponent]
