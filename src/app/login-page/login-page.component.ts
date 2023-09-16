@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { LoginCredentials } from '../login.user.crediential.Interface';
 import { LocalStorageService } from '../services/local-storage.service';
+import { Router } from '@angular/router';
+import { IUser } from '../app-component.interface';
+import { UserAuthService } from '../services/userauth-service.service';
 
 @Component({
   selector: 'app-login-page',
@@ -9,35 +12,33 @@ import { LocalStorageService } from '../services/local-storage.service';
 })
 export class LoginPageComponent {
   
-  constructor(private localStorageService: LocalStorageService){}
+  constructor(private userAuth : UserAuthService, private route: Router){}
+
+  isInvalid: boolean = false;
 
   user: LoginCredentials = {
     email: "",
     password: ""
   }
-  onSubmit(){
-    // get the user details from the services and check if the user exist and if it does direct to log in 
-    // if user exist hide the login signup button and give a message of Hi "username" in that place
-    //if it doesen't show up something that was hidden in red text in the html page that invalid username/password
 
-    const enteredEmail = this.user.email;
-    const enteredPassword = this.user.password;
-    const storedUser = this.localStorageService.get(enteredEmail);
+  LoginUser: Partial<IUser> = {
+    email: "",
+    password: ""
+  }
+
+  onSubmit(){
+  
+    this.LoginUser.email = this.user.email;
+    this.LoginUser.password = this.user.password;
 
     if (
-      storedUser &&
-      enteredEmail === storedUser.email &&
-      enteredPassword === storedUser.password
+      this.userAuth.validateUser(this.LoginUser)
     ) {
-      console.log('Login successful');
+      this.route.navigate(['bodyContainer']);
     } else {
       console.error('Invalid credentials');
+      this.isInvalid = true;  
     }
-    
-
-    
-    
-    
 
   }
 }

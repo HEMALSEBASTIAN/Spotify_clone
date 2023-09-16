@@ -3,15 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { MusicCreationComponent } from './body-container/music-creation/music-creation.component';
 import { BodyContainerComponent } from './body-container/body-container.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { SignupComponent } from './signup/signup.component';
+
 
 const routes: Routes = [
   {
-    path:'',
-    redirectTo:'createMusic',
-    pathMatch:'full'
+    path: '',
+    redirectTo: 'bodyContainer',
+    pathMatch: 'full'
   },
   {
-    path:'createMusic',
+    path: 'createMusic',
     component: MusicCreationComponent,
   },
   {
@@ -21,6 +23,13 @@ const routes: Routes = [
   {
     path: 'loginpage',
     component: LoginPageComponent
+  },
+  {
+    path: 'bodyContainer',
+    component: BodyContainerComponent,
+  }, {
+    path: "signuppage",
+    component: SignupComponent
   }
 ];
 
