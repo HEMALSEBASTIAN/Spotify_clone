@@ -4,6 +4,7 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     padding:5px;
     gap:30px;
+    min-height: 500px;
     .music-body{
         display: flex;
         flex-direction: column;
@@ -42,6 +43,25 @@
         &__content{
             text-align: center;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        &__footer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px 0px;
+            .music-edit{
+                padding: 10px 20px;
+                border: none;
+                border-radius: 30px;
+                cursor: pointer;
+                font-size: 16px;
+                background-color:black;
+                color: white;
+    
+                &:hover {
+                    background-color: rgb(54, 50, 50);
+                }
+            }
         }
     }
 }
