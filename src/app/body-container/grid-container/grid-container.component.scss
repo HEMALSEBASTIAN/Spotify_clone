@@ -1,3 +1,4 @@
+
 .grid-container{
     background-color: grey;
     display: grid;
@@ -12,37 +13,24 @@
         border: 2px solid black;
         border-radius: 50px;
         box-sizing: border-box;
-        &:hover{
-            border: 4px solid red;
-        }
-        &__image{
-            margin-bottom: -52px;
-            .music-image{
-                padding: 10px;
-                box-sizing: border-box;
-                max-width: 100%;
-                height: auto;
-                border-radius: 50px;
+        max-width: 100%;
+        height: auto;
+        border-radius: 50px;
 
-            }
-            .play-button{
-                display:block;
-                width: 50px;
-                height: auto;
-                position: relative;
-                cursor: pointer;
-                left: 76%;
-                bottom:22%;
-                transition: transform 0.5s;
-                &:hover{
-                    transform: scale(1.15);
-                }
-            }
-            
-        }
-        &__content{
-            text-align: center;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      }
+
+      .play-button {
+        display: block;
+        width: 50px;
+        height: auto;
+        position: relative;
+        cursor: pointer;
+        left: 76%;
+        bottom: 22%;
+        transition: transform 0.5s;
+
+        &:hover {
+          transform: scale(1.15);
         }
         &__footer{
             display: flex;
@@ -64,4 +52,5 @@
             }
         }
     }
+  }
 }

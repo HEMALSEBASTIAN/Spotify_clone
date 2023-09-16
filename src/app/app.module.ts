@@ -13,6 +13,9 @@ import { HeaderChildComponent } from './header-container/header-child/header-chi
 import { LocalStorageService } from './services/local-storage.service';
 import { MusicCreationComponent } from './body-container/music-creation/music-creation.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
+import { UserAuthService } from './services/userauth-service.service';
+
 
 
 @NgModule({
@@ -22,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeaderParentComponent,
     HeaderChildComponent,
     MusicCreationComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [LocalStorageService],
+  providers: [LocalStorageService, UserAuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
