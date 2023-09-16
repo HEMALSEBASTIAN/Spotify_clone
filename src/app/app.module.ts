@@ -12,7 +12,9 @@ import { HeaderParentComponent } from './header-container/header-parent/header-p
 import { HeaderChildComponent } from './header-container/header-child/header-child.component';
 import { LocalStorageService } from './services/local-storage.service';
 import { MusicCreationComponent } from './body-container/music-creation/music-creation.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
+import { UserAuthService } from './services/userauth-service.service';
 
 
 @NgModule({
@@ -22,15 +24,17 @@ import { FormsModule } from '@angular/forms';
     HeaderParentComponent,
     HeaderChildComponent,
     MusicCreationComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BodyContainerModule,
     FooterContainerModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [LocalStorageService],
+  providers: [LocalStorageService, UserAuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
