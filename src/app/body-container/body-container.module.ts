@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule, TitleCasePipe } from '@angular/common';
 import { BodyContainerComponent } from './body-container.component';
 import { GridContainerComponent } from './grid-container/grid-container.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MusicServiceService } from '../services/music-service.service';
 
 
@@ -15,7 +15,8 @@ import { MusicServiceService } from '../services/music-service.service';
   imports: [
     CommonModule,
     FormsModule,
-    TitleCasePipe
+    TitleCasePipe,
+    ReactiveFormsModule,
 
   ],
   providers:[MusicServiceService],

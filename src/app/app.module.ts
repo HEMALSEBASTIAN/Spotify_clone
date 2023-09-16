@@ -12,7 +12,7 @@ import { HeaderParentComponent } from './header-container/header-parent/header-p
 import { HeaderChildComponent } from './header-container/header-child/header-child.component';
 import { LocalStorageService } from './services/local-storage.service';
 import { MusicCreationComponent } from './body-container/music-creation/music-creation.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     BodyContainerModule,
     FooterContainerModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [LocalStorageService],
   bootstrap: [AppComponent]

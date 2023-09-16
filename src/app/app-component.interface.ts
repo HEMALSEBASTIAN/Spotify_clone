@@ -1,5 +1,5 @@
 export interface IMusic{
-    id:number;
+    id?:number;
     albumName:string;
     authorName:string;
     category:string;
