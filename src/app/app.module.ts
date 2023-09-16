@@ -13,6 +13,7 @@ import { HeaderChildComponent } from './header-container/header-child/header-chi
 import { LocalStorageService } from './services/local-storage.service';
 import { MusicCreationComponent } from './body-container/music-creation/music-creation.component';
 import { FormsModule } from '@angular/forms';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { FormsModule } from '@angular/forms';
     HeaderParentComponent,
     HeaderChildComponent,
     MusicCreationComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,

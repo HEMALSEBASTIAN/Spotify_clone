@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MusicCreationComponent } from './body-container/music-creation/music-creation.component';
 import { BodyContainerComponent } from './body-container/body-container.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path:'bodyContainer',
     component:BodyContainerComponent,
+  },
+  {
+    path: 'loginpage',
+    component: LoginPageComponent
   }
 ];
 

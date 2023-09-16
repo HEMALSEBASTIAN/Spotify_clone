@@ -18,4 +18,13 @@ export class HeaderChildComponent implements OnInit{
     rightNavSecondaryBtn: ""
   }
 
+  DirectToLogin(){
+    // route to the login page
+    
+  }
+
+  DirectToSignup(){
+    // route to the sign up page
+  }
+
 }
