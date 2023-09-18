@@ -12,13 +12,10 @@ const routes: Routes = [
     redirectTo: 'loginpage',
     pathMatch: 'full'
   },
+
   {
-    path: 'createMusic',
-    component: MusicCreationComponent,
-  },
-  {
-    path:'bodyContainer',
-    component:BodyContainerComponent,
+    path: 'bodyContainer',
+    loadChildren: () => import('./body-container/body-container.module').then(m => m.BodyContainerModule)
   },
   {
     path: 'loginpage',
