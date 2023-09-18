@@ -22,4 +22,7 @@ export class UserAuthService {
     return this.userDetails?.email == passedUserData.email && this.userDetails?.confirmPassword === passedUserData.password;
 
   }
+  public getAuthStatus() :boolean{
+    return !!this.localStorage.get(USER_KEY);
+  }
 }
