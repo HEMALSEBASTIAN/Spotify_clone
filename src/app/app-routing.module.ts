@@ -4,6 +4,7 @@ import { MusicCreationComponent } from './body-container/music-creation/music-cr
 import { BodyContainerComponent } from './body-container/body-container.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupComponent } from './signup/signup.component';
+import { AuthGuard } from './services/auth.guard';
 
 
 const routes: Routes = [
@@ -14,8 +15,10 @@ const routes: Routes = [
   },
 
   {
+
     path: 'bodyContainer',
     loadChildren: () => import('./body-container/body-container.module').then(m => m.BodyContainerModule)
+
   },
   {
     path: 'loginpage',
@@ -29,6 +32,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }
