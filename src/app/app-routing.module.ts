@@ -9,7 +9,7 @@ import { SignupComponent } from './signup/signup.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'bodyContainer',
+    redirectTo: 'loginpage',
     pathMatch: 'full'
   },
   {
@@ -25,9 +25,6 @@ const routes: Routes = [
     component: LoginPageComponent
   },
   {
-    path: 'bodyContainer',
-    component: BodyContainerComponent,
-  }, {
     path: "signuppage",
     component: SignupComponent
   }
