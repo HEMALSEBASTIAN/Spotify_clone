@@ -1,3 +1,25 @@
+.add-music-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    background-color: grey;
+    padding: 5px;
+    &__add-music{
+        padding: 10px 20px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 16px;
+        background-color:black;
+        color: white;
+
+        &:hover {
+            background-color: rgb(54, 50, 50);
+        }
+    }
+}
+
+
 .grid-container{
     background-color: grey;
     display: grid;

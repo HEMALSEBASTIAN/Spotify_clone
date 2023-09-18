@@ -21,6 +21,11 @@ export class GridContainerComponent implements OnInit{
   {
     this.router.navigate(['createMusic'], {queryParams: {musicId: musicId}});
   }
+
+  public onSubmit()
+  {
+    this.router.navigate(['createMusic']);
+  }
 }
 
 
