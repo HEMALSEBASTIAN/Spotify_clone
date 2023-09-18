@@ -1,3 +1,6 @@
+<div class="add-music-container">
+    <button class="add-music-container__add-music" (click)="onSubmit()">Add music</button>
+</div>
 <div class="grid-container" [style.min-height]="musicList.length===0?'500px' : '0px'">
     <ng-container *ngFor="let music of musicList">
         <div class="music-body">
@@ -20,3 +23,4 @@
         
     </ng-container>
 </div>
+
