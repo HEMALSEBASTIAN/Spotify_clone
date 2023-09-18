@@ -69,7 +69,7 @@ export class SignupComponent implements OnInit {
           gender: gender
         }
         this.userService.setUserDetails(this.user);
-        this.route.navigate(['bodyContainer']);
+        this.route.navigate(['loginpage']);
 
       }
       else {

@@ -1,65 +1,67 @@
 .grid-container{
-  background-color: grey;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  padding:5px;
-  gap:30px;
-  min-height: 500px;
-  .music-body{
-      display: flex;
-      flex-direction: column;
-      max-width: 300px;
-      border: 2px solid black;
-      border-radius: 50px;
-      box-sizing: border-box;
-      &:hover{
-          border: 4px solid red;
-      }
-      &__image{
-          margin-bottom: -52px;
-          .music-image{
-              padding: 10px;
-              box-sizing: border-box;
-              max-width: 100%;
-              height: auto;
-              border-radius: 50px;
-
-          .play-button{
-              display:block;
-              width: 50px;
-              height: auto;
-              position: relative;
-              cursor: pointer;
-              left: 76%;
-              bottom:22%;
-              transition: transform 0.5s;
-              &:hover{
-                  transform: scale(1.15);
-              }
-          }
-       
-      &__content{
-          text-align: center;
-          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      }
-      &__footer{
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin: 5px 0px;
-          .music-edit{
-              padding: 10px 20px;
-              border: none;
-              border-radius: 30px;
-              cursor: pointer;
-              font-size: 16px;
-              background-color:black;
-              color: white;
+    background-color: grey;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding:5px;
+    gap:30px;
+    min-height: 500px;
+    .music-body{
+        display: flex;
+        flex-direction: column;
+        max-width: 300px;
+        border: 2px solid black;
+        border-radius: 50px;
+        box-sizing: border-box;
+        &:hover{
+            border: 4px solid red;
+        }
+        &__image{
+            margin-bottom: -52px;
+            .music-image{
+                padding: 10px;
+                box-sizing: border-box;
+                max-width: 100%;
+                height: auto;
+                border-radius: 50px;
   
-              &:hover {
-                  background-color: rgb(54, 50, 50);
-              }
-          }
-      }
+            }
+            .play-button{
+                display:block;
+                width: 50px;
+                height: auto;
+                position: relative;
+                cursor: pointer;
+                left: 76%;
+                bottom:22%;
+                transition: transform 0.5s;
+                &:hover{
+                    transform: scale(1.15);
+                }
+            }
+            
+        }
+        &__content{
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        &__footer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px 0px;
+            .music-edit{
+                padding: 10px 20px;
+                border: none;
+                border-radius: 30px;
+                cursor: pointer;
+                font-size: 16px;
+                background-color:black;
+                color: white;
+    
+                &:hover {
+                    background-color: rgb(54, 50, 50);
+                }
+            }
+        }
     }
-}
+  }
