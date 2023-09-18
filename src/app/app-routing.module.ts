@@ -17,8 +17,9 @@ const routes: Routes = [
   {
 
     path: 'bodyContainer',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./body-container/body-container.module').then(m => m.BodyContainerModule)
-
+    
   },
   {
     path: 'loginpage',
