@@ -56,20 +56,19 @@ export class LoginPageComponent {
       password: this.LoginUser.password
     };
   
-    if ( this.userAuth.validateUser(this.LoginUser)) {
-      this.router.navigate(['bodyContainer']); // route only after getting the jwt packet
+    
+      
       this.apiService.authenticateUser(credentials).subscribe(
         (response) => {
           const jwtToken = response.token; 
           // Store the token in a secure place (e.g., local storage)
+          this.router.navigate(['bodyContainer']); // route only after getting the jwt packet
         },
         (error) => {
           console.error('Authentication error:', error);
         }
       );
-    } else {
-      console.error('Invalid credentials');
-      this.isInvalid = true;  
-    }
-  }
+    } 
+  
+  
 }

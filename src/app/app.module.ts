@@ -18,7 +18,7 @@ import { SignupComponent } from './signup/signup.component';
 import { UserAuthService } from './services/userauth-service.service';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpinterceptorInterceptor } from './httpinterceptor.interceptor';
-import { ApitesterComponent } from './apitester/apitester.component';
+
 
 
 
@@ -31,7 +31,7 @@ import { ApitesterComponent } from './apitester/apitester.component';
     MusicCreationComponent,
     LoginPageComponent,
     SignupComponent,
-    ApitesterComponent,
+    
   ],
   imports: [
     BrowserModule,
