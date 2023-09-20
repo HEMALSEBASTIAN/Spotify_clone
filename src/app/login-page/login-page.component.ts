@@ -1,18 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LoginCredentials } from '../login.user.crediential.Interface';
 import { LocalStorageService } from '../services/local-storage.service';
 import { Router } from '@angular/router';
-import { IUser } from '../app-component.interface';
+import { IDummyResponse, IDummyUser, IUser } from '../app-component.interface';
 import { UserAuthService } from '../services/userauth-service.service';
+import { ApiServiceService } from '../services/api-service.service';
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss']
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnInit {
+
+  dummyData!:Array<IDummyUser>;
+  dummyReponse!:IDummyResponse;
+  constructor(
+    private userAuth: UserAuthService,
+    private route: Router,
+    private apiService: ApiServiceService) { }
   
-  constructor(private userAuth : UserAuthService, private route: Router){}
+    ngOnInit(): void {
+    this.apiService.get()
+      .subscribe((data: IDummyResponse) => {
+          this.dummyReponse=data;
+          this.dummyData=this.dummyReponse.users.map(({id, firstName, lastName})=>({id, firstName, lastName}));
+        });
+      }
+  
 
   isInvalid: boolean = false;
 
@@ -26,8 +41,8 @@ export class LoginPageComponent {
     password: ""
   }
 
-  onSubmit(){
-  
+  onSubmit() {
+
     this.LoginUser.email = this.user.email;
     this.LoginUser.password = this.user.password;
 
@@ -37,7 +52,7 @@ export class LoginPageComponent {
       this.route.navigate(['bodyContainer']);
     } else {
       console.error('Invalid credentials');
-      this.isInvalid = true;  
+      this.isInvalid = true;
     }
 
   }

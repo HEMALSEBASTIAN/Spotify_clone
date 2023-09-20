@@ -18,3 +18,17 @@ export interface IUser {
     gender: string;
 
 }
+
+export interface IDummyUser {
+    id:number;
+    firstName:string;
+    lastName:string
+}
+
+export interface IDummyResponse {
+    limit: number;
+    skip: number;
+    total:number;
+    users: Array<IDummyUser>
+}
+

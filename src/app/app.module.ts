@@ -16,8 +16,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { UserAuthService } from './services/userauth-service.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpinterceptorInterceptor } from './httpinterceptor.interceptor';
+import { ApiServiceService } from './services/api-service.service';
 
 
 
@@ -38,8 +39,12 @@ import { HttpinterceptorInterceptor } from './httpinterceptor.interceptor';
     FooterContainerModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [LocalStorageService, UserAuthService,
+  providers: [
+    LocalStorageService, 
+    UserAuthService, 
+    ApiServiceService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpinterceptorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
