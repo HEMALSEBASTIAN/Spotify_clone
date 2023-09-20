@@ -1,49 +1,31 @@
 <body>
-
-<div class="login-container">
-    <h2>Login to Spotify</h2>
-    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+  <div class="login-container">
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          [(ngModel)]="user.email"
-          required
-          email
-        />
-        <div
-          class="error-message"
-          *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched"
-          style="color: red;"
-        >
+        <label for="email">Email:</label>
+        <input type="email" id="email" formControlName="email" class="form-control" />
+        <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched" class="text-danger">
+          Email is required.
+        </div>
+        <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched" class="text-danger">
           Please enter a valid email address.
         </div>
       </div>
+  
       <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          [(ngModel)]="user.password"
-          required
-        />
-        <div
-          class="error-message"
-          *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched"
-          style="color: red;"
-        >
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName="password" class="form-control" />
+        <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched" class="text-danger">
           Password is required.
         </div>
       </div>
-      <button type="submit" [disabled]="loginForm.invalid">Login</button>
 
-      <div *ngIf= "isInvalid">Invalid User!</div>
+      <div style="color: red;" *ngIf="isInvalid">Invalid user</div>
+  
+      <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>
     </form>
   </div>
-
-
-    
 </body>
+
+

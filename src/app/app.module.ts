@@ -16,8 +16,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { UserAuthService } from './services/userauth-service.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpinterceptorInterceptor } from './httpinterceptor.interceptor';
+import { ApitesterComponent } from './apitester/apitester.component';
 
 
 
@@ -30,6 +31,7 @@ import { HttpinterceptorInterceptor } from './httpinterceptor.interceptor';
     MusicCreationComponent,
     LoginPageComponent,
     SignupComponent,
+    ApitesterComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,8 @@ import { HttpinterceptorInterceptor } from './httpinterceptor.interceptor';
     FooterContainerModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
+    
   ],
   providers: [LocalStorageService, UserAuthService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpinterceptorInterceptor, multi: true }],

@@ -9,7 +9,7 @@ import { HeaderValueComponents } from './header-child-interface.component';
 export class HeaderChildComponent implements OnInit{
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    
   }
 
   @Input() public NavBarListItems: HeaderValueComponents={

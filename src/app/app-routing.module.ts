@@ -5,6 +5,7 @@ import { BodyContainerComponent } from './body-container/body-container.componen
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthGuard } from './services/auth.guard';
+import { ApitesterComponent } from './apitester/apitester.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path: "signuppage",
     component: SignupComponent
+  },
+  {
+
+    path: 'apitester',
+    component: ApitesterComponent
   }
 ];
 

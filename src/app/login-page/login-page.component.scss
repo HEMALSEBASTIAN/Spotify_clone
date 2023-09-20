@@ -1,67 +1,58 @@
 body{
-    display: flex;
-    justify-content: center;
-    background-color: rgb(11, 7, 7);
+  justify-content: center;
+  display: flex;
+  background-color: #1b1a1a;
+  padding: 2%;
 }
-
 .login-container {
-    background-color: #333; /* Dark background color */
-    color: #fff; /* Text color */
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Box shadow for a card-like effect */
-    width: 300px; /* Adjust the width as needed */
-  
-    h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
+  background-color: #333; 
+  color: #fff; 
+  width: 30%;
+  justify-content: center;
+  padding: 5%;
+  border-radius: 20px;
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
     }
-  
-    form {
-      label {
-        display: block;
-        margin-bottom: 8px;
-      }
-  
-      .form-group {
-        margin-bottom: 20px;
-      }
-  
-      input[type="email"],
-      input[type="password"] {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid #555; /* Dark border */
-        border-radius: 5px;
-        background-color: #444; /* Dark input background */
-        color: #fff;
-      }
-  
-      .error-message {
-        font-size: 14px;
-        margin-top: 4px;
-      }
-  
-      button {
-        background-color: #1db954; /* Green color for the button */
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-  
-        &:hover {
-          background-color: #168f48; /* Darker green color on hover */
-        }
-  
-        &:disabled {
-          background-color: #555; /* Dark gray for disabled button */
-          cursor: not-allowed;
-        }
-      }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #777; 
+      background-color: #444; 
+      color: #fff;
+      border-radius: 5px;
+    }
+
+    
+    .text-danger {
+      font-size: 14px;
+      color: #ff6347; 
     }
   }
-  
+
+ 
+  button[type="submit"] {
+    background-color: #007bff; 
+    color: #fff; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button[type="submit"]:disabled {
+    background-color: #777; 
+    cursor: not-allowed;
+  }
+}
