@@ -7,6 +7,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AuthGuard } from './services/auth.guard';
 
 
+
 const routes: Routes = [
   {
     path: '',
@@ -28,7 +29,9 @@ const routes: Routes = [
   {
     path: "signuppage",
     component: SignupComponent
-  }
+  },
+  
+
 ];
 
 @NgModule({

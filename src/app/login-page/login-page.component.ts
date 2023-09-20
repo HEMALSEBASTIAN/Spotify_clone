@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { LoginCredentials } from '../login.user.crediential.Interface';
-import { LocalStorageService } from '../services/local-storage.service';
 import { Router } from '@angular/router';
 import { IUser } from '../app-component.interface';
 import { UserAuthService } from '../services/userauth-service.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from '../services/api-service.service';
 
 @Component({
   selector: 'app-login-page',
@@ -12,14 +13,20 @@ import { UserAuthService } from '../services/userauth-service.service';
 })
 export class LoginPageComponent {
   
-  constructor(private userAuth : UserAuthService, private route: Router){}
+  loginForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder, private userAuth: UserAuthService, private router: Router, private apiService: ApiService) {
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]]
+    });
+   }
+
+  ngOnInit(): void {
+    
+  }
 
   isInvalid: boolean = false;
-
-  user: LoginCredentials = {
-    email: "",
-    password: ""
-  }
 
   LoginUser: Partial<IUser> = {
     email: "",
@@ -28,17 +35,40 @@ export class LoginPageComponent {
 
   onSubmit(){
   
-    this.LoginUser.email = this.user.email;
-    this.LoginUser.password = this.user.password;
-
-    if (
-      this.userAuth.validateUser(this.LoginUser)
-    ) {
-      this.route.navigate(['bodyContainer']);
-    } else {
-      console.error('Invalid credentials');
-      this.isInvalid = true;  
+    if (!this.loginForm.valid) {
+      this.isInvalid = true;
+    }
+    else {
+      this.isInvalid = false;
+      console.log(this.loginForm.value);
+      this.LoginUser.email = this.loginForm.get('email')?.value;
+      this.LoginUser.password = this.loginForm.get('password')?.value;
+      this.validateLogin();
     }
 
   }
+
+
+  validateLogin(): void{
+
+    const credentials = {
+      email: this.LoginUser.email,
+      password: this.LoginUser.password
+    };
+  
+    
+      
+      this.apiService.authenticateUser(credentials).subscribe(
+        (response) => {
+          const jwtToken = response.token; 
+          // Store the token in a secure place (e.g., local storage)
+          this.router.navigate(['bodyContainer']); // route only after getting the jwt packet
+        },
+        (error) => {
+          console.error('Authentication error:', error);
+        }
+      );
+    } 
+  
+  
 }
