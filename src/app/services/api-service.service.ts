@@ -7,14 +7,19 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  
-  private baseUrl = 'https://your-api-url.com/api/';
+
+  private baseUrl = 'https://localhost:7147/';
 
   constructor(private http: HttpClient) { }
 
   authenticateUser(credentials: { email: string, password: string }): Observable<{ token: string }> {
-    const url = this.baseUrl + 'auth/login'; 
+    const url = this.baseUrl + 'authenticate';
     return this.http.post<{ token: string }>(url, credentials);
+  }
+
+  authorizeUser() {
+    const url = this.baseUrl + 'authorization';
+    return this.http.get(url);
   }
 
 }

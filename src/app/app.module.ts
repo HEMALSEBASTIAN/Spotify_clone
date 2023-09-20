@@ -18,6 +18,7 @@ import { SignupComponent } from './signup/signup.component';
 import { UserAuthService } from './services/userauth-service.service';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpinterceptorInterceptor } from './httpinterceptor.interceptor';
+import { JwtInterceptor } from './jwt.interceptor';
 
 
 
@@ -31,7 +32,7 @@ import { HttpinterceptorInterceptor } from './httpinterceptor.interceptor';
     MusicCreationComponent,
     LoginPageComponent,
     SignupComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -41,10 +42,12 @@ import { HttpinterceptorInterceptor } from './httpinterceptor.interceptor';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
-    
+
   ],
   providers: [LocalStorageService, UserAuthService,
-    { provide: HTTP_INTERCEPTORS, useClass: HttpinterceptorInterceptor, multi: true }],
+    { provide: HTTP_INTERCEPTORS, useClass: HttpinterceptorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

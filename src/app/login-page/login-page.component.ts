@@ -5,6 +5,7 @@ import { IUser } from '../app-component.interface';
 import { UserAuthService } from '../services/userauth-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../services/api-service.service';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'app-login-page',
@@ -12,18 +13,22 @@ import { ApiService } from '../services/api-service.service';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent {
-  
+
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private userAuth: UserAuthService, private router: Router, private apiService: ApiService) {
+  constructor(private formBuilder: FormBuilder,
+    private userAuth: UserAuthService,
+    private router: Router, private apiService: ApiService,
+    private localStorage: LocalStorageService
+  ) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
-   }
+  }
 
   ngOnInit(): void {
-    
+
   }
 
   isInvalid: boolean = false;
@@ -33,8 +38,8 @@ export class LoginPageComponent {
     password: ""
   }
 
-  onSubmit(){
-  
+  onSubmit() {
+
     if (!this.loginForm.valid) {
       this.isInvalid = true;
     }
@@ -49,26 +54,26 @@ export class LoginPageComponent {
   }
 
 
-  validateLogin(): void{
+  validateLogin(): void {
 
     const credentials = {
-      email: this.LoginUser.email,
-      password: this.LoginUser.password
+      email: this.LoginUser.email as string,
+      password: this.LoginUser.password as string
     };
-  
-    
-      
-      this.apiService.authenticateUser(credentials).subscribe(
-        (response) => {
-          const jwtToken = response.token; 
-          // Store the token in a secure place (e.g., local storage)
-          this.router.navigate(['bodyContainer']); // route only after getting the jwt packet
-        },
-        (error) => {
-          console.error('Authentication error:', error);
-        }
-      );
-    } 
-  
-  
+
+    this.apiService.authenticateUser(credentials).subscribe(
+      (response) => {
+
+        const jwtToken = response;
+        this.localStorage.set("Jwt", jwtToken);
+        // Store the token in a secure place (e.g., local storage)
+        this.router.navigate(['bodyContainer']); // route only after getting the jwt packet
+      },
+      (error) => {
+        console.error('Authentication error:', error);
+      }
+    );
+  }
+
+
 }
