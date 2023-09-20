@@ -1,7 +1,7 @@
 import { CanActivateFn } from '@angular/router';
 
 export const authGuard: CanActivateFn = (route, state) => {
-  return true;
+    return true;
 };
 
 
@@ -14,7 +14,8 @@ import {
     UrlTree
 } from "@angular/router";
 import { UserAuthService } from './userauth-service.service';
-  
+import { map } from 'rxjs';
+
 @Injectable()
 export class AuthGuard implements CanActivate {
     constructor(
@@ -22,11 +23,16 @@ export class AuthGuard implements CanActivate {
         private router: Router) { }
     canActivate(
         route: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot): boolean | Promise<boolean> {
-        var isAuthenticated = this.authService.getAuthStatus();
-        if (!isAuthenticated) {
-            this.router.navigate(['loginpage']);
-        }
-        return isAuthenticated;
+        state: RouterStateSnapshot
+    ): Promise<boolean> {
+        return this.authService.getAuthStatus().pipe(
+            map((isAuthenticated) => {
+                if (!isAuthenticated) {
+                    this.router.navigate(['loginpage']);
+                    return false;
+                }
+                return true;
+            })
+        ).toPromise() as Promise<boolean>;
     }
 }

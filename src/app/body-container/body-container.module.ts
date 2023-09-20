@@ -6,14 +6,17 @@ import { MusicServiceService } from '../services/music-service.service';
 import { BodyContainerComponent } from './body-container.component';
 import { GridContainerComponent } from './grid-container/grid-container.component';
 import { MusicCreationComponent } from './music-creation/music-creation.component';
+import { AuthGuard } from '../services/auth.guard';
 
 const route: Routes = [
   {
     path: "",
+    canActivate: [AuthGuard],
     component: BodyContainerComponent
   },
   {
     path: 'createMusic',
+    canActivate: [AuthGuard],
     component: MusicCreationComponent,
   },
 ]
