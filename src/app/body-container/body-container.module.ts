@@ -16,7 +16,7 @@ const route: Routes = [
   },
   {
     path: 'createMusic',
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
     component: MusicCreationComponent,
   },
 ]
