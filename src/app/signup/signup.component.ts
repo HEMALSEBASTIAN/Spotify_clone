@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IUser } from '../app-component.interface';
 import { UserAuthService } from '../services/userauth-service.service';
-import { Router } from '@angular/router';
-import { GridContainerComponent } from '../body-container/grid-container/grid-container.component';
 
 @Component({
   selector: 'app-signup',

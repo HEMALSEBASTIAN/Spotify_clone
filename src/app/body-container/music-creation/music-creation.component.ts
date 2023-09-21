@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LastValueFromConfig } from 'rxjs/internal/lastValueFrom';
 import { IMusic } from 'src/app/app-component.interface';
 import { MusicServiceService } from 'src/app/services/music-service.service';
 
@@ -63,17 +62,17 @@ export class MusicCreationComponent implements OnInit {
         category: [this.currentMusic.category, Validators.required],
         imageUrl: [this.currentMusic.imageUrl, Validators.required]
       })
-      this.title='Edit '+this.currentMusic.albumName;
+      this.title = 'Edit ' + this.currentMusic.albumName;
     }
-    else{
-      this.title='Add Music'
+    else {
+      this.title = 'Add Music'
     }
   }
 
   public onSubmit() {
     if (this.musicProduct.valid) {
       console.log(this.musicProduct.controls['id']);
-      this.validationCheck=false;
+      this.validationCheck = false;
       if (this.musicProduct.controls['id'].value != null) {
         console.log(this.musicProduct.value);
         this.musicService.updateMusic(this.musicProduct.value as IMusic);
