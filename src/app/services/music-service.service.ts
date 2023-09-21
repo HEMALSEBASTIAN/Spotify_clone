@@ -7,7 +7,7 @@ const USER_KEY='musicData';
 export class MusicServiceService {
 
   constructor(private readonly dataService:LocalStorageService) { }
-  currentMusicList!:Array<IMusic>;
+  currentMusicList:Array<IMusic> = [];
   public addMusic(music : Partial<IMusic>)
   {
     this.currentMusicList=this.dataService.get(USER_KEY) || [];
