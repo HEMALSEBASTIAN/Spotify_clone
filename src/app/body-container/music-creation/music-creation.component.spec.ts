@@ -1,11 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { of } from 'rxjs';
 import { MusicCreationComponent } from './music-creation.component';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { MusicServiceService } from 'src/app/services/music-service.service';
 import { IMusic } from 'src/app/app-component.interface';
+
 
 fdescribe('MusicCreationComponent', () => {
   let component: MusicCreationComponent;
@@ -65,6 +67,7 @@ fdescribe('MusicCreationComponent', () => {
       declarations: [MusicCreationComponent],
       imports: [ReactiveFormsModule],
       providers: [
+
         { provide: LocalStorageService, useValue: localStorageServiceMock },
         { provide: MusicServiceService, useValue: musicStorageServiceMock },
         { provide: ActivatedRoute, useValue: mockActivatedRoute },
@@ -72,6 +75,7 @@ fdescribe('MusicCreationComponent', () => {
     });
     localStorageService = TestBed.inject(LocalStorageService);
     musicService = TestBed.inject(MusicServiceService);
+
     fixture = TestBed.createComponent(MusicCreationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -81,6 +85,7 @@ fdescribe('MusicCreationComponent', () => {
     expect(component).toBeTruthy();
   });
 
+
   it('should initialize form controls', () => {
     expect(component.musicProduct).toBeDefined();
     expect(component.authorNameCheck).toBeDefined();
@@ -88,4 +93,6 @@ fdescribe('MusicCreationComponent', () => {
     expect(component.imageUrlCheck).toBeDefined();
   });
 
+
 });
+
